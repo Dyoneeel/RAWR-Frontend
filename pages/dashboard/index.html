@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="../../">
+  <title>RAWR — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/pages/multipage.css">
+  
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="css/pages/php-theme.css"><link rel="stylesheet" href="css/php-pages/dashboard.css">
+  <script src="demo-data/data.js" defer></script>
+  <script src="js/pages/demo-state.js" defer></script>
+  <script src="js/pages/site-shell.js" defer></script>
+  <script src="js/pages/dashboard.js" defer></script>
+</head>
+<body data-page="dashboard">
+  <div id="app-header"></div>
+  <div class="app-layout">
+    <aside id="app-sidebar"></aside>
+    <main class="page-main dashboard-page">
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <h1>Welcome to the Jungle, <span id="dashboard-username">Lion</span>!</h1>
+        <p>Your kingdom awaits. Mine RAWR tokens, play exciting casino games, and dominate the leaderboards. The pride of lions is counting on you!</p>
+        <div class="coin-animation" aria-hidden="true">
+          <div class="coin">
+            <div class="coin-face coin-front"><div class="coin-lion">🦁</div></div>
+            <div class="coin-face coin-back"><div class="coin-text">RAWR</div></div>
+            <div class="coin-edge"></div>
+          </div>
+        </div>
+        <div class="hero-buttons">
+          <a class="hero-btn pulse" id="mineNowBtn" href="pages/mining/index.html"><i class="fas fa-digging" aria-hidden="true"></i> Start Mining</a>
+          <a class="hero-btn secondary" id="playCasinoBtn" href="pages/games/index.html"><i class="fas fa-dice" aria-hidden="true"></i> Play Casino</a>
+        </div>
+      </section>
+
+      <section class="checkin">
+        <h2 class="section-title"><i class="fas fa-calendar-check" aria-hidden="true"></i> Daily Check-in</h2>
+        <div class="checkin-grid" id="checkinGrid">
+          <article class="checkin-day claimed"><div class="day-number">Day 1</div><div class="day-reward"><div class="reward-amount">5 RAWR</div>+ 1 Tickets</div><button class="checkin-btn" disabled>Claimed</button></article>
+          <article class="checkin-day claimed"><div class="day-number">Day 2</div><div class="day-reward"><div class="reward-amount">10 RAWR</div>+ 2 Tickets</div><button class="checkin-btn" disabled>Claimed</button></article>
+          <article class="checkin-day available"><div class="day-number">Day 3</div><div class="day-reward"><div class="reward-amount">15 RAWR</div>+ 3 Tickets</div><button class="checkin-btn" type="button" data-demo-checkin>Claim Reward</button></article>
+          <article class="checkin-day locked"><div class="day-number">Day 4</div><div class="day-reward"><div class="reward-amount">20 RAWR</div>+ 4 Tickets</div><button class="checkin-btn" disabled>Locked</button></article>
+          <article class="checkin-day locked"><div class="day-number">Day 5</div><div class="day-reward"><div class="reward-amount">30 RAWR</div>+ 5 Tickets</div><button class="checkin-btn" disabled>Locked</button></article>
+          <article class="checkin-day locked"><div class="day-number">Day 6</div><div class="day-reward"><div class="reward-amount">50 RAWR</div>+ 6 Tickets</div><button class="checkin-btn" disabled>Locked</button></article>
+          <article class="checkin-day locked"><div class="day-number">Day 7</div><div class="day-reward"><div class="reward-amount">100 RAWR</div>+ 10 Tickets</div><button class="checkin-btn" disabled>Locked</button></article>
+        </div>
+        <div class="streak-info"><p>Your current streak: <span class="streak-count" id="dashboard-streak">3 days</span></p><p class="reset-warning">Streak resets if you miss a day!</p></div>
+      </section>
+
+      <section class="features">
+        <h2 class="section-title"><i class="fas fa-crown" aria-hidden="true"></i> King's Features</h2>
+        <div class="features-grid">
+          <article class="feature-card"><div class="feature-icon"><i class="fas fa-gem" aria-hidden="true"></i></div><h3 class="feature-title">Mine Precious RAWR</h3><p class="feature-desc">Unearth valuable RAWR tokens with your mining tools. Upgrade your equipment to increase your earnings.</p><a href="pages/mining/index.html" class="feature-btn">Start Mining</a></article>
+          <article class="feature-card"><div class="feature-icon"><i class="fas fa-dice" aria-hidden="true"></i></div><h3 class="feature-title">Jungle Casino</h3><p class="feature-desc">Test your luck in our exciting casino games. Slots, roulette, and more — all with simulated rewards.</p><a href="pages/games/index.html" class="feature-btn">Play Games</a></article>
+          <article class="feature-card"><div class="feature-icon"><i class="fas fa-trophy" aria-hidden="true"></i></div><h3 class="feature-title">Leaderboards</h3><p class="feature-desc">Compete with other players and climb the leaderboards. Top players earn special rewards each week.</p><a href="pages/leaderboard/index.html" class="feature-btn">View Rankings</a></article>
+          <article class="feature-card"><div class="feature-icon"><i class="fas fa-wallet" aria-hidden="true"></i></div><h3 class="feature-title">Wallet Integration</h3><p class="feature-desc">Connect a demo wallet to manage your RAWR tokens and game tickets in one place.</p><a href="pages/wallet/index.html" class="feature-btn">Setup Wallet</a></article>
+        </div>
+      </section>
+
+      <section class="challenges">
+        <h2 class="section-title"><i class="fas fa-tasks" aria-hidden="true"></i> Daily Challenges</h2>
+        <div class="challenges-grid">
+          <article class="challenge-card"><div class="challenge-header"><div class="challenge-icon"><i class="fas fa-trophy" aria-hidden="true"></i></div><h3 class="challenge-title">Mine 100 RAWR</h3></div><p class="challenge-desc">Collect RAWR tokens by mining.</p><div class="progress-container"><div class="progress-bar progress-42"></div></div><div class="challenge-reward">Reward: 20 RAWR</div><button class="challenge-btn" disabled>Continue</button></article>
+          <article class="challenge-card"><div class="challenge-header"><div class="challenge-icon"><i class="fas fa-trophy" aria-hidden="true"></i></div><h3 class="challenge-title">Play 3 Games</h3></div><p class="challenge-desc">Try your luck in the jungle casino.</p><div class="progress-container"><div class="progress-bar progress-33"></div></div><div class="challenge-reward">Reward: 5 Tickets</div><a class="challenge-btn" href="pages/games/index.html">Continue</a></article>
+          <article class="challenge-card"><div class="challenge-header"><div class="challenge-icon"><i class="fas fa-trophy" aria-hidden="true"></i></div><h3 class="challenge-title">Visit the Casino</h3></div><p class="challenge-desc">Explore the available casino games.</p><div class="progress-container"><div class="progress-bar progress-0"></div></div><div class="challenge-reward">Reward: 10 RAWR</div><a class="challenge-btn" href="pages/games/index.html">Continue</a></article>
+        </div>
+        <div class="hero-buttons hero-buttons-more"><a href="pages/rewards/index.html" class="hero-btn secondary">More Challenges</a></div>
+      </section>
+
+      <section class="referral-section">
+        <div class="referral-card">
+          <div class="referral-header"><h2 class="referral-title"><i class="fas fa-users" aria-hidden="true"></i> Referral Stats</h2></div>
+          <div class="referral-stats-grid"><div class="referral-stat"><div class="referral-number">0</div><div class="referral-label">Total Referrals</div></div><div class="referral-stat"><div class="referral-number">0</div><div class="referral-label">RAWR Earned</div></div><div class="referral-stat"><div class="referral-number">0</div><div class="referral-label">Tickets Earned</div></div></div>
+          <div><span class="stat-label">Your Referral Code:</span><div class="referral-link-container"><input type="text" class="referral-input" id="referral-input" value="RAWR-DEMO" readonly><button class="copy-btn" id="copy-referral" type="button">Copy</button><span id="copyMsg" class="copy-message" hidden>Copied!</span></div></div>
+        </div>
+      </section>
+
+      <section class="activity-section">
+        <div class="activity-card"><div class="activity-header"><h2 class="activity-title"><i class="fas fa-history" aria-hidden="true"></i> Recent Activity</h2></div>
+          <div class="activity-list"><div class="activity-item"><div class="activity-icon">🎁</div><div class="activity-details"><div class="activity-description">Welcome to the RAWR portfolio demo</div><div class="activity-time">Just now</div></div><div class="activity-amount">Demo</div></div><div class="activity-item"><div class="activity-icon">⛏️</div><div class="activity-details"><div class="activity-description">Mining rewards are simulated locally</div><div class="activity-time">Today</div></div><div class="activity-amount">—</div></div></div>
+        </div>
+      </section>
+      <p class="demo-disclaimer">Portfolio demo — all balances, rewards and gameplay are simulated in this browser.</p>
+    </main>
+  </div>
+  <div id="demo-notice" class="demo-notice" role="status" aria-live="polite"></div>
+</body>
+</html>

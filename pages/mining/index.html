@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="../../">
+  <title>RAWR Crypto Mining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css"><link rel="stylesheet" href="css/dashboard.css"><link rel="stylesheet" href="css/pages/multipage.css"><link rel="stylesheet" href="css/pages/account.css"><link rel="stylesheet" href="css/icons.css"><link rel="stylesheet" href="css/pages/php-theme.css"><link rel="stylesheet" href="css/php-pages/mining.css">
+  <script src="demo-data/data.js" defer></script><script src="js/pages/demo-state.js" defer></script><script src="js/pages/site-shell.js" defer></script><script src="js/pages/mining.js" defer></script>
+</head>
+<body data-page="mining">
+  <div id="app-header"></div>
+  <div class="app-layout">
+    <aside id="app-sidebar"></aside>
+    <main class="page-main mining-page">
+      <div class="mining-bg" aria-hidden="true"></div>
+      <section class="mining-hero">
+        <div class="hero-content">
+          <h1>Mine RAWR Tokens</h1>
+          <p>Your lion is hard at work digging for treasures! Earn 10 RAWR per hour at Level 1 and maximize your earnings with upgrades.</p>
+          <div class="mining-character"><div class="character-container"><div class="mining-lion" id="miningLion"><img src="assets/logo.png" alt="Lion Logo"></div></div></div>
+          <div class="mining-progress-container">
+            <div class="progress-header"><div class="progress-title"><i class="fas fa-hourglass-half" aria-hidden="true"></i> Mining Progress</div><div class="progress-time"><i class="fas fa-clock" aria-hidden="true"></i> Next reward in: <span id="timeLeft">00:00</span></div></div>
+            <div class="progress-bar-container"><div class="progress-bar" id="miningProgress" style="width:0%"></div></div>
+            <div class="progress-stats"><span><div><i class="fas fa-tachometer-alt" aria-hidden="true"></i> Current rate:</div><div class="stat-value" id="miningRate">10.00 RAWR/hr</div></span><span><div><i class="fas fa-gem" aria-hidden="true"></i> Reward per cycle:</div><div class="stat-value" id="nextReward">10.00 RAWR</div></span></div>
+          </div>
+          <div class="mining-controls"><button class="mining-btn" id="mineButton" type="button"><i class="fas fa-play" aria-hidden="true"></i> Start Mining</button><button class="mining-btn secondary" id="claimReward" type="button"><i class="fas fa-gem" aria-hidden="true"></i> Claim Reward (<span id="rewardAmount">10.00</span> RAWR)</button></div>
+        </div>
+      </section>
+      <section class="mining-stats">
+        <h2 class="section-title"><i class="fas fa-chart-line" aria-hidden="true"></i> Mining Statistics</h2>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon"><i class="fas fa-coins" aria-hidden="true"></i></div><div class="stat-title">Total Mined</div><div class="stat-value" id="totalMined">0.0000 RAWR</div><div class="stat-subtext">Lifetime earnings</div></article>
+          <article class="stat-card"><div class="stat-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div><div class="stat-title">Mining Rate</div><div class="stat-value" id="currentRate">10.00 RAWR/hr</div><div class="stat-subtext">With current equipment</div></article>
+          <article class="stat-card"><div class="stat-icon"><i class="fas fa-rocket" aria-hidden="true"></i></div><div class="stat-title">Active Boosts</div><div class="stat-value" id="activeBoosts">x1.0</div><div class="stat-subtext">Total multiplier</div></article>
+        </div>
+      </section>
+      <section class="upgrade-section">
+        <h2 class="section-title"><i class="fas fa-tools" aria-hidden="true"></i> Mining Upgrades</h2>
+        <div class="upgrade-grid">
+          <article class="upgrade-card"><div class="upgrade-header"><div class="upgrade-icon"><i class="fas fa-hand-fist" aria-hidden="true"></i></div><div><div class="upgrade-title">Stronger Shovel</div><div class="upgrade-level">Level <span id="shovelLevel">1</span></div></div></div><div class="upgrade-description">Increases your mining efficiency by 25% per level. Dig deeper and find more RAWR!</div><div class="upgrade-cost"><div class="cost-value"><i class="fas fa-coins" aria-hidden="true"></i><span id="shovelCost">15</span> RAWR</div><button class="upgrade-btn" id="upgradeShovel" type="button">Upgrade</button></div></article>
+          <article class="upgrade-card"><div class="upgrade-header"><div class="upgrade-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div><div><div class="upgrade-title">Energy Boost</div><div class="upgrade-level">Level <span id="energyLevel">1</span></div></div></div><div class="upgrade-description">Reduces mining time by 10% per level. Mine faster and collect rewards more frequently!</div><div class="upgrade-cost"><div class="cost-value"><i class="fas fa-coins" aria-hidden="true"></i><span id="energyCost">25</span> RAWR</div><button class="upgrade-btn" id="upgradeEnergy" type="button">Upgrade</button></div></article>
+          <article class="upgrade-card"><div class="upgrade-header"><div class="upgrade-icon"><i class="fas fa-crown" aria-hidden="true"></i></div><div><div class="upgrade-title">Royal Pickaxe</div><div class="upgrade-level">Level <span id="pickaxeLevel">1</span></div></div></div><div class="upgrade-description">Chance to find bonus RAWR with each mining session. Higher levels increase bonus chance.</div><div class="upgrade-cost"><div class="cost-value"><i class="fas fa-coins" aria-hidden="true"></i><span id="pickaxeCost">50</span> RAWR</div><button class="upgrade-btn" id="upgradePickaxe" type="button">Upgrade</button></div></article>
+        </div>
+      </section>
+      <section class="mining-history"><div class="history-card"><div class="history-header"><h2 class="history-title"><i class="fas fa-history" aria-hidden="true"></i> Mining History</h2><button class="mining-btn secondary" id="clearHistory" type="button"><i class="fas fa-trash" aria-hidden="true"></i> Clear</button></div><div class="history-list" id="historyList"></div></div></section>
+      <p class="demo-disclaimer">Mining timers and rewards are simulated in your browser.</p>
+    </main>
+  </div>
+  <div id="miningToastContainer" class="mining-toast-container" aria-live="polite"></div>
+  <div id="demo-notice" class="demo-notice" role="status" aria-live="polite"></div>
+</body>
+</html>

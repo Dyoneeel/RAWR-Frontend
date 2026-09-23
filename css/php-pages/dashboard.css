@@ -1,0 +1,165 @@
+
+        :root {
+            --primary: #FFD700;
+            --primary-dark: #FFA500;
+            --secondary: #FF6B35;
+            --bg-dark: #1a1a1a;
+            --bg-darker: #121212;
+            --bg-gradient: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%);
+            --text-light: #f0f0f0;
+            --text-muted: #ccc;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+            --glass-bg: rgba(40, 40, 40, 0.35);
+            --glass-border: rgba(255, 215, 0, 0.15);
+            --glow: 0 0 15px rgba(255, 215, 0, 0.3);
+            --section-spacing: 3rem;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        /* --- Make coin-logo match mining.php --- */
+        .coin-logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-right: 0.7rem;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.25), 0 2px 8px rgba(0,0,0,0.18);
+            border: 2px solid var(--glass-border);
+            transition: box-shadow 0.3s;
+        }
+        .coin-logo img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 0 8px rgba(255,215,0,0.18));
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(255,215,0,0.12);
+            gap: 0.5rem;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 1rem;
+            background: radial-gradient(ellipse at center, rgba(255,215,0,0.08) 0%, transparent 70%);
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><radialGradient id="stars"><stop offset="0%" stop-color="%23FFD700" stop-opacity="1"/><stop offset="100%" stop-color="%23FFD700" stop-opacity="0"/></radialGradient></defs><circle cx="100" cy="100" r="2" fill="url(%23stars)"/><circle cx="300" cy="200" r="1.5" fill="url(%23stars)"/><circle cx="500" cy="150" r="1" fill="url(%23stars)"/><circle cx="700" cy="300" r="2" fill="url(%23stars)"/><circle cx="900" cy="250" r="1.5" fill="url(%23stars)"/><circle cx="1100" cy="400" r="1" fill="url(%23stars)"/></svg>') repeat;
+            opacity: 0.6;
+            animation: twinkle 3s ease-in-out infinite alternate;
+            z-index: 0;
+            pointer-events: none;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+        .reward-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            z-index: 200;
+            text-align: center;
+            display: none;
+        }
+        .reward-popup h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        .reward-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .reward-amount div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .reward-message {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        #closePopup {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #1a1a1a;
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        #closePopup:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            display: none;
+        }
+        .activity-list {
+            max-height: 300px; 
+            overflow-y: auto;
+        }
+        .activity-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        .activity-list::-webkit-scrollbar-track {
+            background: rgba(40, 40, 40, 0.5);
+            border-radius: 4px;
+        }
+        .activity-list::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+    

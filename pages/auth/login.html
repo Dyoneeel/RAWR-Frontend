@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="../../">
+  <meta name="description" content="Sign in to the RAWR Casino frontend portfolio demo.">
+  <title>RAWR — Join the Pride | Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script src="js/pages/demo-state.js" defer></script>
+  <script src="js/pages/auth.js" defer></script>
+</head>
+<body class="auth-page" data-page="login">
+  <div class="auth-bg" aria-hidden="true"></div>
+  <div class="floating-paws" aria-hidden="true">
+    <span class="paw">🐾</span><span class="paw">🐾</span><span class="paw">🐾</span>
+    <span class="paw">🐾</span><span class="paw">🐾</span><span class="paw">🐾</span>
+    <span class="paw">🐾</span><span class="paw">🐾</span><span class="paw">🐾</span>
+  </div>
+
+  <a href="index.html" class="back-home">← <span class="back-home-text">Back to RAWR</span></a>
+
+  <main class="auth-container" aria-labelledby="auth-title">
+    <div class="logo-header">
+      <div class="lion-emoji"><img src="assets/logo.png" alt="RAWR lion logo"></div>
+      <h1 id="auth-title">RAWR</h1>
+      <p>The Lion's Game - Jungle Casino</p>
+    </div>
+
+    <form action="#" method="post" class="auth-form" id="login-form">
+      <div class="form-group">
+        <label for="username">Email or Username</label>
+        <input type="text" id="username" name="username" autocomplete="username" placeholder="Enter your email or username" required autofocus>
+      </div>
+
+      <div class="form-group password-group">
+        <label for="password">Password</label>
+        <div class="password-input-wrap">
+          <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
+          <button type="button" class="password-toggle" data-toggle-password="password" aria-label="Show password">👁️</button>
+        </div>
+      </div>
+
+      <div class="form-options">
+        <label class="remember-me"><input type="checkbox" name="remember" id="remember"> Remember me</label>
+        <span class="forgot-password"><a href="#" data-forgot-password>Forgot Password?</a></span>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enter the Jungle</button>
+    </form>
+
+    <p class="auth-storage-note">Player accounts are saved in this browser. No server or real account is contacted.</p>
+
+    <aside class="admin-demo-credentials" aria-label="Admin demo login">
+      <strong><i class="fas fa-shield-halved" aria-hidden="true"></i> Superadmin demo access</strong>
+      <span>Username: <code>superadmin</code></span>
+      <span>Password: <code>RawrAdmin2026!</code></span>
+      <a href="pages/admin/dashboard.html">Open the admin console <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    </aside>
+
+    <div class="switch-page">
+      <p>Don't have an account? <a href="pages/auth/register.html">Join the Pride</a></p>
+    </div>
+  </main>
+
+  <div class="demo-notice notification" id="demo-notice" role="status" aria-live="polite"></div>
+</body>
+</html>

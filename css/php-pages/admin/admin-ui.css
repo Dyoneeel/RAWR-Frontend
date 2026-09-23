@@ -1,0 +1,350 @@
+/* ============================================================
+   RAWR ADMIN UI
+   Right-side off-canvas sidebar + responsive layout
+   ============================================================ */
+
+:root {
+    --admin-sidebar-width: 280px;
+    --admin-header-height: 64px;
+}
+
+.admin-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1100 !important;
+}
+
+.admin-header-content {
+    padding: 10px clamp(1rem, 3vw, 2rem) !important;
+}
+
+.logo-area {
+    padding-left: 0 !important;
+}
+
+.menu-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(255, 215, 0, 0.22);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.30);
+    color: var(--primary);
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    flex: 0 0 auto;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+    background: rgba(255, 215, 0, 0.10);
+    transform: scale(1.05);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.10);
+}
+
+.menu-toggle .fa-xmark {
+    display: none;
+}
+
+.menu-toggle.active .fa-bars {
+    display: none;
+}
+
+.menu-toggle.active .fa-xmark {
+    display: inline-block;
+}
+
+.dashboard-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: block !important;
+    min-height: calc(100vh - var(--admin-header-height));
+    width: 100%;
+}
+
+.admin-sidebar {
+    position: fixed !important;
+    top: var(--admin-header-height) !important;
+    right: 0 !important;
+    left: auto !important;
+    bottom: 0 !important;
+    width: min(var(--admin-sidebar-width), calc(100vw - 20px)) !important;
+    height: calc(100vh - var(--admin-header-height)) !important;
+    max-height: calc(100vh - var(--admin-header-height));
+    padding: 1.5rem 0 2rem !important;
+    margin: 0 !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1090 !important;
+    border-right: none !important;
+    border-left: 1px solid rgba(255, 215, 0, 0.20) !important;
+    box-shadow: -12px 0 35px rgba(0, 0, 0, 0.30);
+    transform: translateX(100%) !important;
+    transition: transform 0.30s ease, box-shadow 0.30s ease;
+    -webkit-overflow-scrolling: touch;
+}
+
+.admin-sidebar.active {
+    transform: translateX(0) !important;
+}
+
+.admin-sidebar .sidebar-item {
+    border-left: none !important;
+    border-right: 3px solid transparent;
+    padding: 0.75rem 1.4rem;
+}
+
+.admin-sidebar .sidebar-item.active {
+    border-left: none !important;
+    border-right: 3px solid var(--primary) !important;
+}
+
+.admin-sidebar .sidebar-item.active::before {
+    display: none !important;
+}
+
+.sidebar-backdrop {
+    position: fixed !important;
+    inset: var(--admin-header-height) 0 0 0 !important;
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1080 !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    backdrop-filter: blur(2px);
+}
+
+.sidebar-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+body.admin-sidebar-open {
+    overflow: hidden;
+}
+
+.main-content {
+    width: 100% !important;
+    max-width: 1400px;
+    margin: 0 auto !important;
+    padding: clamp(1rem, 3vw, 2rem) !important;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.table-responsive {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive .data-table {
+    min-width: 680px;
+}
+
+.search-filter-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.user-edit-form,
+.form-section,
+.form-group,
+.form-control {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.modal-dialog,
+.modal-content {
+    max-width: calc(100vw - 2rem);
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --admin-header-height: 60px;
+    }
+
+    .admin-header-content {
+        padding: 8px 1rem !important;
+    }
+
+    .logo {
+        font-size: 1.45rem !important;
+    }
+
+    .logo i {
+        font-size: 1.15rem !important;
+    }
+
+    .profile-toggle {
+        padding: 0.35rem 0.65rem !important;
+    }
+
+    .profile-toggle img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .profile-toggle span {
+        font-size: 0.85rem;
+    }
+
+    .main-content {
+        padding: 1rem !important;
+    }
+
+    .section-title {
+        font-size: clamp(1.45rem, 5vw, 1.9rem) !important;
+    }
+
+    .section-description {
+        font-size: 0.9rem;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 0.9rem !important;
+    }
+
+    .stat-card {
+        padding: 1rem !important;
+        min-width: 0;
+    }
+
+    .stat-card-value {
+        font-size: 1.55rem !important;
+        overflow-wrap: anywhere;
+    }
+
+    .dashboard-section {
+        padding: 1rem !important;
+    }
+
+    .section-header {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .search-filter-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .search-box,
+    .filter-select {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .data-table th,
+    .data-table td {
+        white-space: nowrap;
+    }
+
+    .modal-dialog {
+        width: calc(100vw - 1.5rem) !important;
+        margin: 0.75rem;
+    }
+
+    .admin-sidebar {
+        width: min(300px, calc(100vw - 16px)) !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .admin-header-content {
+        gap: 0.75rem;
+    }
+
+    .logo span {
+        font-size: 1.2rem !important;
+    }
+
+    .header-actions {
+        gap: 0.5rem !important;
+    }
+
+    .profile-toggle span {
+        display: none !important;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr !important;
+    }
+
+    .stat-card {
+        padding: 0.9rem !important;
+    }
+
+    .section-title-wrapper {
+        margin-bottom: 1.2rem !important;
+    }
+
+    .dashboard-section {
+        padding: 0.85rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .data-table {
+        font-size: 0.78rem;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 0.7rem 0.6rem !important;
+    }
+
+    .btn {
+        min-height: 40px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .admin-sidebar {
+        width: min(290px, calc(100vw - 12px)) !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .logo span {
+        font-size: 1.05rem !important;
+    }
+
+    .main-content {
+        padding: 0.8rem !important;
+    }
+
+    .admin-sidebar {
+        width: calc(100vw - 8px) !important;
+    }
+}

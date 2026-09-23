@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="../../../">
+  <title>Jungle Slots — RAWR Casino</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/pages/multipage.css">
+  <link rel="stylesheet" href="css/games/games.css">
+  <link rel="stylesheet" href="css/php-pages/game-standalone.css">
+  <link rel="stylesheet" href="css/php-pages/games/slots.css">
+  <link rel="stylesheet" href="css/php-pages/games/demo-interactions.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="demo-data/data.js" defer></script>
+  <script src="js/pages/demo-state.js" defer></script>
+  <script src="js/pages/site-shell.js" defer></script>
+  <script src="js/pages/games.js" defer></script>
+</head>
+<body data-page="game-slots" data-game="slots">
+  <div id="app-header"></div>
+  <div class="app-layout">
+    <aside id="app-sidebar"></aside>
+    <main class="page-main standalone-game">
+      <div class="game-grid">
+        <section class="game-main-content">
+          <header class="game-title-section">
+            <h1>🦁 Jungle Slots 🎰</h1>
+            <p>Spin to win big with Leo the Lion!</p>
+          </header>
+
+          <div class="stats-grid">
+            <article class="stat-card glass-card">
+              <div class="stat-label"><i class="fas fa-ticket-alt stat-icon" aria-hidden="true"></i>Ticket Balance</div>
+              <div class="stat-value" id="game-ticket-balance">50</div>
+            </article>
+            <article class="stat-card glass-card">
+              <div class="stat-label"><i class="fas fa-trophy stat-icon" aria-hidden="true"></i>Last Win</div>
+              <div class="stat-value" id="last-win-display">0</div>
+            </article>
+            <article class="stat-card glass-card">
+              <div class="stat-label"><i class="fas fa-coins stat-icon" aria-hidden="true"></i>Jackpot</div>
+              <div class="stat-value">50,000</div>
+            </article>
+          </div>
+
+          <div class="slot-machine-container">
+            <canvas id="slotCanvas" width="600" height="300" role="img" aria-label="Three jungle slot reels"></canvas>
+          </div>
+          <p class="game-result" id="game-result" aria-live="polite">Choose your bet and spin the reels.</p>
+
+          <section class="paytable-section glass-card" aria-labelledby="slots-paytable-title">
+            <h2 class="paytable-title" id="slots-paytable-title">💰 Paytable 💰</h2>
+            <div class="paytable-grid">
+              <div class="paytable-item"><div class="paytable-symbols">🦁🦁🦁</div><div class="paytable-payout">JACKPOT!</div></div>
+              <div class="paytable-item"><div class="paytable-symbols">💎💎💎</div><div class="paytable-payout">1000x</div></div>
+              <div class="paytable-item"><div class="paytable-symbols">👑👑👑</div><div class="paytable-payout">500x</div></div>
+              <div class="paytable-item"><div class="paytable-symbols">🐵🐵🐵</div><div class="paytable-payout">300x</div></div>
+              <div class="paytable-item"><div class="paytable-symbols">🐗🐗🐗</div><div class="paytable-payout">200x</div></div>
+              <div class="paytable-item"><div class="paytable-symbols">🐯🐯🐯</div><div class="paytable-payout">150x</div></div>
+              <div class="paytable-item"><div class="paytable-symbols">🦁🦁</div><div class="paytable-payout">50x</div></div>
+              <div class="paytable-item"><div class="paytable-symbols">🦁</div><div class="paytable-payout">5x</div></div>
+            </div>
+          </section>
+        </section>
+
+        <aside class="controls-column">
+          <form class="controls-card glass-card" id="slotForm">
+            <label for="bet-amount" class="bet-label">Bet Amount (Tickets)</label>
+            <div class="bet-input-container">
+              <input type="number" id="bet-amount" value="10" min="1" max="1000" class="bet-input">
+            </div>
+            <div class="quick-bet-buttons" aria-label="Quick bet amount">
+              <button type="button" class="quick-bet-btn" data-bet-value="1">1</button>
+              <button type="button" class="quick-bet-btn active" data-bet-value="10">10</button>
+              <button type="button" class="quick-bet-btn" data-bet-value="25">25</button>
+              <button type="button" class="quick-bet-btn" data-bet-value="50">50</button>
+              <button type="button" class="quick-bet-btn" data-bet-value="100">100</button>
+              <button type="button" class="quick-bet-btn" data-bet-max>MAX</button>
+            </div>
+            <div class="spin-buttons">
+              <button type="submit" class="spin-btn" id="spin-slots"><span>Spin</span></button>
+              <button type="button" class="auto-spin-btn" id="auto-spin-slots"><span>Auto Spin</span></button>
+            </div>
+          </form>
+
+          <section class="history-card glass-card">
+            <h2 class="history-title">Spin History</h2>
+            <div class="history-items" id="game-history" aria-live="polite"></div>
+          </section>
+        </aside>
+      </div>
+      <p class="demo-disclaimer">Game outcomes are simulated locally. No real money or tokens are used.</p>
+    </main>
+  </div>
+  <div id="demo-notice" class="demo-notice" role="status"></div>
+</body>
+</html>

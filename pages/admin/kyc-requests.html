@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../../">
+  <title>RAWR Casino — KYC Requests</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css"><link rel="stylesheet" href="css/php-pages/admin/kyc-requests.css"><link rel="stylesheet" href="css/php-pages/admin/demo-adapt.css"><link rel="stylesheet" href="css/php-pages/admin/admin-ui.css">
+  <script src="demo-data/data.js" defer></script><script src="js/pages/demo-state.js" defer></script><script src="js/pages/site-shell.js" defer></script><script src="js/pages/admin.js" defer></script><script src="js/pages/admin-ui.js" defer></script>
+</head>
+<body class="admin-source-page" data-page="admin-kyc">
+  <div class="admin-dashboard">
+    <header class="admin-header"><div class="admin-header-content"><div class="logo-area"><a href="pages/admin/dashboard.html" class="logo"><i class="fas fa-paw" aria-hidden="true"></i><span>RAWR Admin</span></a></div><div class="header-actions"><button class="menu-toggle" id="adminMenuToggle" type="button" aria-label="Open Admin Menu" aria-expanded="false" aria-controls="adminSidebar"><i class="fas fa-bars" aria-hidden="true"></i><i class="fas fa-xmark" aria-hidden="true"></i></button></div></div></header>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <div class="dashboard-content">
+      <aside class="admin-sidebar" id="adminSidebar"><nav class="sidebar-nav" aria-label="Admin navigation"><div class="sidebar-header">Main Menu</div><a href="pages/admin/dashboard.html" class="sidebar-item"><i class="fas fa-tachometer-alt" aria-hidden="true"></i><span>Dashboard</span></a><a href="pages/admin/manage-users.html" class="sidebar-item"><i class="fas fa-users" aria-hidden="true"></i><span>Manage Users</span></a><a href="pages/admin/kyc-requests.html" class="sidebar-item active"><i class="fas fa-id-card" aria-hidden="true"></i><span>KYC Requests</span></a><div class="sidebar-header">System</div><a href="index.html" class="sidebar-item" data-demo-logout><i class="fas fa-sign-out-alt" aria-hidden="true"></i><span>Logout</span></a></nav></aside>
+      <main class="main-content">
+        <section class="section-title-wrapper"><span class="section-subtitle">User Verification</span><h1 class="section-title">KYC Requests</h1><p class="section-description">Review and manage Know Your Customer verification requests submitted by users.</p></section>
+        <section class="dashboard-stats" aria-label="KYC statistics">
+          <article class="stat-card animate-fadeIn"><div class="stat-card-icon"><i class="fas fa-clock" aria-hidden="true"></i></div><div class="stat-card-title">Pending Requests</div><div class="stat-card-value" id="kyc-pending-count">0</div></article>
+          <article class="stat-card animate-fadeIn"><div class="stat-card-icon"><i class="fas fa-check-circle" aria-hidden="true"></i></div><div class="stat-card-title">Approved</div><div class="stat-card-value" id="kyc-approved-count">0</div></article>
+          <article class="stat-card animate-fadeIn"><div class="stat-card-icon"><i class="fas fa-times-circle" aria-hidden="true"></i></div><div class="stat-card-title">Rejected</div><div class="stat-card-value" id="kyc-rejected-count">0</div></article>
+        </section>
+        <section class="dashboard-section animate-fadeIn">
+          <div class="tabs" role="tablist" aria-label="KYC request status"><button class="tab-btn active" id="tab-pending" type="button" role="tab" aria-selected="true" data-tab="pending"><i class="fas fa-clock" aria-hidden="true"></i> Pending</button><button class="tab-btn" id="tab-approved" type="button" role="tab" aria-selected="false" data-tab="approved"><i class="fas fa-check" aria-hidden="true"></i> Approved</button><button class="tab-btn" id="tab-rejected" type="button" role="tab" aria-selected="false" data-tab="rejected"><i class="fas fa-times" aria-hidden="true"></i> Rejected</button></div>
+          <div id="pending" class="tab-content active" role="tabpanel" aria-labelledby="tab-pending"><div class="table-responsive"><table class="data-table"><thead><tr><th>User</th><th>Email</th><th>RAWR</th><th>Tickets</th><th>Joined</th><th>Status</th><th>Actions</th></tr></thead><tbody id="kyc-pending-body"></tbody></table></div></div>
+          <div id="approved" class="tab-content" role="tabpanel" aria-labelledby="tab-approved"><div class="table-responsive"><table class="data-table"><thead><tr><th>User ID</th><th>Username</th><th>Email</th><th>RAWR Balance</th><th>Ticket Balance</th><th>Joined</th><th>Action</th></tr></thead><tbody id="kyc-approved-body"></tbody></table></div></div>
+          <div id="rejected" class="tab-content" role="tabpanel" aria-labelledby="tab-rejected"><div class="table-responsive"><table class="data-table"><thead><tr><th>Request ID</th><th>User</th><th>Full Name</th><th>Submitted At</th><th>Reviewed At</th><th>Status</th><th>Actions</th></tr></thead><tbody id="kyc-rejected-body"></tbody></table></div></div>
+        </section>
+        <p class="demo-disclaimer">This portfolio demo uses fictional verification statuses and contains no identity documents.</p>
+      </main>
+    </div>
+  </div>
+  <div id="kycModal" class="modal" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><button type="button" class="modal-close" data-modal-close aria-label="Close"><i class="fas fa-times" aria-hidden="true"></i></button><div class="modal-header"><h2 class="modal-title" id="kycModalTitle">KYC Request Details</h2></div><div class="modal-body" id="kycModalBody"></div><div class="modal-footer" id="kycModalFooter"></div></div></div></div>
+  <div id="demo-notice" class="demo-notice" role="status" aria-live="polite"></div>
+</body>
+</html>

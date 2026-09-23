@@ -1,0 +1,93 @@
+body.game-standalone-page:not(.landing-page):not(.auth-page) {
+  padding-top: 0;
+  background: var(--dark-bg-gradient);
+}
+body.game-standalone-page .app-layout { display: contents; }
+body.game-standalone-page #app-header,
+body.game-standalone-page #app-sidebar { display: none; }
+body.game-standalone-page .page-main.game-wrapper {
+  width: min(1400px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 100px 2rem 80px;
+}
+body.game-standalone-page .close-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  background: rgba(255, 215, 0, .1);
+  color: var(--primary);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+body.game-standalone-page .close-btn:hover { background: rgba(255, 215, 0, .2); transform: scale(1.1) rotate(90deg); }
+body.game-standalone-page .back-link { display: none; }
+body.game-standalone-page .page-heading {
+  display: block;
+  margin: 0 0 2rem;
+  padding: 0;
+  background: transparent;
+  text-align: center;
+}
+body.game-standalone-page .page-heading .eyebrow { display: none; }
+body.game-standalone-page .page-heading h1 {
+  margin: 0 0 .5rem;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  background-clip: text;
+  color: transparent;
+  font-size: 3rem;
+  text-shadow: 0 0 20px rgba(255, 215, 0, .2);
+}
+body.game-standalone-page .page-heading p { color: var(--text-muted); font-size: 1.2rem; }
+body.game-standalone-page .balance-chip { display: inline-flex; margin-top: .8rem; }
+body.game-standalone-page .standalone-game-layout { grid-template-columns: minmax(0, 1fr) 400px; gap: 2rem; align-items: start; }
+body.game-standalone-page .game-play-panel,
+body.game-standalone-page .game-paytable {
+  padding: 2rem;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  background: var(--glass-bg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .2);
+  backdrop-filter: blur(10px);
+}
+body.game-standalone-page .game-paytable { position: sticky; top: 24px; }
+body.game-standalone-page .game-paytable h2 { color: var(--primary); }
+body.game-standalone-page .bet-controls label { display: block; margin: .8rem 0 .5rem; color: var(--primary); font-weight: 600; }
+body.game-standalone-page .bet-controls input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--glass-border);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, .4);
+  color: var(--primary);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+body.game-standalone-page .quick-bets button {
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background: rgba(255, 215, 0, .1);
+  color: var(--primary);
+}
+body.game-standalone-page .game-actions .btn { border-radius: 50px; }
+@media (max-width: 900px) {
+  body.game-standalone-page .standalone-game-layout { grid-template-columns: 1fr; }
+  body.game-standalone-page .game-paytable { position: static; }
+}
+@media (max-width: 576px) {
+  body.game-standalone-page .page-main.game-wrapper { padding: 88px 1rem 3rem; }
+  body.game-standalone-page .page-heading h1 { font-size: 2rem; }
+  body.game-standalone-page .page-heading p { font-size: 1rem; }
+  body.game-standalone-page .game-play-panel,
+  body.game-standalone-page .game-paytable { padding: 1.2rem; }
+}

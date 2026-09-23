@@ -1,0 +1,16 @@
+/* Small static-only additions for the source profile layout. */
+.avatar-settings-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.settings-avatar { width: 80px; height: 80px; font-size: 2rem; }
+.settings-avatar img,
+.profile-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.edit-avatar-btn { border: 0; color: #1a1a1a; }
+.verification-badge[data-status="pending"] { background: rgba(255, 165, 0, .2); color: #ffa500; }
+.verification-badge[data-status="not-submitted"],
+.verification-badge[data-status="rejected"] { background: rgba(255, 0, 0, .2); color: #ff6347; }
+.security-title { margin: 2rem 0 1rem; font-size: 1.2rem; }
+.profile-content > .demo-disclaimer { margin-top: 1rem; }

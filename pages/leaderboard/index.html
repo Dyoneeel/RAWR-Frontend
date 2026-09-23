@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="../../">
+  <title>RAWR Casino — Leaderboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/pages/multipage.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/pages/php-theme.css">
+  <link rel="stylesheet" href="css/php-pages/leaderboard.css">
+  <script src="demo-data/data.js" defer></script>
+  <script src="js/pages/demo-state.js" defer></script>
+  <script src="js/pages/site-shell.js" defer></script>
+  <script src="js/pages/leaderboard.js" defer></script>
+</head>
+<body data-page="leaderboard">
+  <div id="app-header"></div>
+  <div class="app-layout">
+    <aside id="app-sidebar"></aside>
+    <main class="page-main">
+      <section class="page-header">
+        <h1>RAWR Leaderboard</h1>
+        <p>See who rules the jungle with the most RAWR tokens and tickets!</p>
+      </section>
+      <section class="leaderboard-section">
+        <h2 class="section-title"><i class="fas fa-crown" aria-hidden="true"></i> Top Jungle Players</h2>
+        <div class="tabs" role="tablist" aria-label="Leaderboard category">
+          <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-tab="tokens">RAWR Tokens</button>
+          <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="tickets">Tickets</button>
+        </div>
+        <div class="leaderboard-card">
+          <div class="leaderboard-header" aria-hidden="true">
+            <div>Rank</div><div>Player</div><div>RAWR Tokens</div><div>Tickets</div>
+          </div>
+          <div class="leaderboard-list" id="leaderboardList" aria-live="polite"></div>
+        </div>
+        <button class="load-more" id="loadMoreBtn" type="button"><i class="fas fa-chevron-down" aria-hidden="true"></i> Show More Players</button>
+        <p class="demo-disclaimer">Leaderboard entries and balances are fictional portfolio demo data.</p>
+      </section>
+    </main>
+  </div>
+  <div class="leaderboard-bg" aria-hidden="true"></div>
+  <div id="demo-notice" class="demo-notice" role="status"></div>
+</body>
+</html>

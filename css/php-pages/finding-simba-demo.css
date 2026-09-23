@@ -1,0 +1,18 @@
+.finding-simba-demo .card {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+.finding-simba-demo .card:focus-visible {
+  outline: 3px solid var(--primary-light);
+  outline-offset: 5px;
+}
+.finding-simba-demo .card:disabled { cursor: default; opacity: 1; }
+.finding-simba-demo .game-result { min-height: 1.6em; margin: 1.5rem 0 0; color: var(--text-muted); text-align: center; }
+.finding-simba-demo .quick-bet-buttons { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) {
+  .finding-simba-demo .game-grid { grid-template-columns: 1fr; }
+  .finding-simba-demo .controls-column { position: static; max-width: 600px; margin: 2rem auto 0; }
+}

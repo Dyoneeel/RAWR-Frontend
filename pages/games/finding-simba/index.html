@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="../../../">
+  <title>Finding Simba — RAWR Casino</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/pages/multipage.css">
+  <link rel="stylesheet" href="css/games/games.css">
+  <link rel="stylesheet" href="css/php-pages/game-standalone.css">
+  <link rel="stylesheet" href="css/php-pages/games/finding-simba.css">
+  <link rel="stylesheet" href="css/php-pages/finding-simba-demo.css">
+  <link rel="stylesheet" href="css/php-pages/games/demo-interactions.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="demo-data/data.js" defer></script>
+  <script src="js/pages/demo-state.js" defer></script>
+  <script src="js/pages/site-shell.js" defer></script>
+  <script src="js/pages/games.js" defer></script>
+</head>
+<body class="finding-simba-demo" data-page="game-finding" data-game="finding-simba">
+  <div id="app-header"></div>
+  <div class="app-layout">
+    <aside id="app-sidebar"></aside>
+    <main class="page-main standalone-game">
+      <section class="game-grid">
+        <div class="game-main-content">
+          <header class="game-title-section">
+            <h1>Finding Simba</h1>
+            <p>Find Simba hidden in one of the cards to win 3× your bet!</p>
+          </header>
+          <div class="stats-grid">
+            <article class="stat-card glass-card"><div class="stat-label"><i class="fas fa-ticket-alt stat-icon" aria-hidden="true"></i>Ticket Balance</div><div class="stat-value" id="game-ticket-balance">50</div></article>
+            <article class="stat-card glass-card"><div class="stat-label"><i class="fas fa-trophy stat-icon" aria-hidden="true"></i>Last Win</div><div class="stat-value" id="last-win-display">0</div></article>
+            <article class="stat-card glass-card"><div class="stat-label"><i class="fas fa-coins stat-icon" aria-hidden="true"></i>Current Bet</div><div class="stat-value" id="bet-display">10</div></article>
+          </div>
+          <div class="cards-container" id="cardsContainer" aria-label="Choose one of three cards">
+            <button class="card" type="button" data-simba-card="0" aria-label="Reveal card one">
+              <span class="card-face card-back"><span class="card-back-content"><span class="card-back-logo">🦁</span><span class="card-back-text">RAWR CASINO</span></span></span>
+              <span class="card-face card-front"><span class="card-content">🚫</span></span>
+            </button>
+            <button class="card" type="button" data-simba-card="1" aria-label="Reveal card two">
+              <span class="card-face card-back"><span class="card-back-content"><span class="card-back-logo">🦁</span><span class="card-back-text">RAWR CASINO</span></span></span>
+              <span class="card-face card-front"><span class="card-content">🚫</span></span>
+            </button>
+            <button class="card" type="button" data-simba-card="2" aria-label="Reveal card three">
+              <span class="card-face card-back"><span class="card-back-content"><span class="card-back-logo">🦁</span><span class="card-back-text">RAWR CASINO</span></span></span>
+              <span class="card-face card-front"><span class="card-content">🚫</span></span>
+            </button>
+          </div>
+          <p id="game-result" class="game-result" aria-live="polite">Set your bet, then choose a card to find Simba.</p>
+        </div>
+        <div class="controls-column">
+          <section class="controls-card glass-card">
+            <label for="bet-amount" class="bet-label">Bet Amount (Tickets)</label>
+            <div class="bet-input-container"><input type="number" id="bet-amount" value="10" min="1" max="1000" class="bet-input"></div>
+            <div class="quick-bet-buttons">
+              <button class="quick-bet-btn" type="button" data-bet-value="1">1</button>
+              <button class="quick-bet-btn active" type="button" data-bet-value="10">10</button>
+              <button class="quick-bet-btn" type="button" data-bet-value="25">25</button>
+              <button class="quick-bet-btn" type="button" data-bet-value="50">50</button>
+              <button class="quick-bet-btn" type="button" data-bet-value="100">100</button>
+              <button class="quick-bet-btn" type="button" data-bet-max>MAX</button>
+            </div>
+            <div class="spin-buttons">
+              <button type="button" class="spin-btn" id="play-finding">🔍 FIND SIMBA!</button>
+            </div>
+          </section>
+          <section class="history-card glass-card">
+            <h2 class="history-title">Game History</h2>
+            <div class="history-items" id="game-history" aria-live="polite"></div>
+          </section>
+        </div>
+      </section>
+      <p class="demo-disclaimer">Game outcomes are simulated in your browser. No real funds or tokens are used.</p>
+    </main>
+  </div>
+  <div id="demo-notice" class="demo-notice" role="status"></div>
+</body>
+</html>

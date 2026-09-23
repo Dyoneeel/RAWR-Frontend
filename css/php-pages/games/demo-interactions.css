@@ -1,0 +1,115 @@
+/* Small presentational additions for the static demo markup. The game themes
+   and base layouts remain defined by each game's extracted PHP stylesheet. */
+body.game-standalone-page .game-result {
+  min-height: 1.6em;
+  margin: 1rem auto 1.5rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+body.game-standalone-page .stat-card {
+  min-width: 0;
+}
+
+body.game-standalone-page .stat-label {
+  line-height: 1.5;
+}
+
+#slotCanvas {
+  aspect-ratio: 2 / 1;
+}
+
+.animal-card {
+  width: 100%;
+  color: var(--text-light);
+  font: inherit;
+  appearance: none;
+}
+
+.animal-card .animal-name,
+.animal-card .animal-odds {
+  display: block;
+}
+
+.dice-prompt {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.roll-button:disabled {
+  cursor: not-allowed;
+}
+
+.game-grid-container .grid-cell {
+  width: 100%;
+  padding: 0;
+  color: var(--text-light);
+  font-family: inherit;
+  appearance: none;
+}
+
+.game-grid-container .grid-cell:disabled {
+  opacity: 1;
+}
+
+body[data-game="dice"] .history-item.history-lion { background-color: #ff8c00; }
+body[data-game="dice"] .history-item.history-tiger { background-color: #ff4500; }
+body[data-game="dice"] .history-item.history-wolf { background-color: #708090; }
+body[data-game="dice"] .history-item.history-result-win {
+  border: 2px solid #28a745;
+  box-shadow: 0 0 10px rgba(40, 167, 69, .5);
+}
+body[data-game="dice"] .history-item.history-result-loss {
+  border: 2px solid #dc3545;
+  box-shadow: 0 0 10px rgba(220, 53, 69, .3);
+}
+
+@media (max-width: 768px) {
+  body.game-standalone-page .stats-grid {
+    gap: .65rem;
+  }
+
+  body.game-standalone-page .stat-card {
+    padding: 1rem .55rem;
+  }
+
+  body.game-standalone-page .stat-label {
+    font-size: .82rem;
+  }
+
+  body.game-standalone-page .stat-value {
+    font-size: 1.35rem;
+  }
+
+  .animal-selection {
+    gap: .65rem;
+  }
+
+  .animal-card {
+    padding: .9rem .55rem;
+  }
+
+  .animal-icon {
+    font-size: 2.2rem;
+  }
+
+  .animal-odds {
+    font-size: .72rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body.game-standalone-page .stat-label {
+    font-size: .72rem;
+  }
+
+  body.game-standalone-page .stat-value {
+    font-size: 1.1rem;
+  }
+
+  .game-grid-container {
+    gap: 6px;
+  }
+}

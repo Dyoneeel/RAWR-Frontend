@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="../../">
+  <title>RAWR Casino — My Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/pages/multipage.css">
+  <link rel="stylesheet" href="css/pages/account.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/pages/php-theme.css">
+  <link rel="stylesheet" href="css/php-pages/profile.css">
+  <link rel="stylesheet" href="css/php-pages/profile-demo.css">
+  <script src="demo-data/data.js" defer></script>
+  <script src="js/pages/demo-state.js" defer></script>
+  <script src="js/pages/site-shell.js" defer></script>
+  <script src="js/pages/profile.js" defer></script>
+</head>
+<body class="profile-page" data-page="profile">
+  <div id="app-header"></div>
+  <div class="app-layout">
+    <aside id="app-sidebar"></aside>
+    <main class="page-main">
+      <section class="profile-header">
+        <div class="avatar-container">
+          <div class="profile-avatar" id="profileAvatar"><span>🦁</span></div>
+          <button class="edit-avatar-btn" id="uploadAvatarBtn" type="button" aria-label="Choose a local profile avatar"><i class="fas fa-pencil-alt" aria-hidden="true"></i></button>
+          <input type="file" id="avatarFileInput" accept="image/*" hidden>
+        </div>
+        <div class="user-info">
+          <h1 class="user-name" id="profile-name">DemoLion</h1>
+          <div class="user-email" id="profile-email">demo@rawr.casino</div>
+          <div class="member-since">Member since: <span id="profile-member-since">Sep 2026</span></div>
+          <div class="verification-badge" id="profile-kyc-status"><i class="fas fa-times-circle" aria-hidden="true"></i> Not submitted</div>
+          <div class="referral-code-display">Your Referral Code: <span id="profile-referral-code">RAWR-DEMO</span></div>
+        </div>
+      </section>
+
+      <section class="profile-content">
+        <nav class="tabs" role="tablist" aria-label="Profile sections">
+          <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-profile-tab="overview">Overview</button>
+          <button class="tab-btn" type="button" role="tab" aria-selected="false" data-profile-tab="settings">Settings</button>
+          <button class="tab-btn" type="button" role="tab" aria-selected="false" data-profile-tab="kyc">KYC Verification</button>
+        </nav>
+
+        <div class="tab-content active" id="overviewTab" role="tabpanel">
+          <h2 class="section-title"><i class="fas fa-chart-line" aria-hidden="true"></i> My Stats</h2>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-coins" aria-hidden="true"></i></div><div class="stat-title">Total RAWR Balance</div><div class="stat-value" id="overviewRawrBalance">250.00</div></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-ticket-alt" aria-hidden="true"></i></div><div class="stat-title">Total Tickets</div><div class="stat-value" id="overviewTicketsBalance">50</div></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-trophy" aria-hidden="true"></i></div><div class="stat-title">Leaderboard Rank</div><div class="stat-value">#<span id="overviewRank">5</span></div></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-gem" aria-hidden="true"></i></div><div class="stat-title">Total Wins</div><div class="stat-value" id="overviewTotalWins">2</div></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-clock" aria-hidden="true"></i></div><div class="stat-title">Current Login Streak</div><div class="stat-value" id="currentLoginStreak">3 Days</div></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-fire" aria-hidden="true"></i></div><div class="stat-title">Longest Login Streak</div><div class="stat-value" id="longestLoginStreak">7 Days</div></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-digging" aria-hidden="true"></i></div><div class="stat-title">Total RAWR Mined</div><div class="stat-value" id="profile-mined">1,234.56</div></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div><div class="stat-title">Mining Boost Level</div><div class="stat-value">x2.00</div></article>
+          </div>
+          <h2 class="section-title"><i class="fas fa-gamepad" aria-hidden="true"></i> Game Statistics</h2>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-dice" aria-hidden="true"></i></div><div class="stat-title">Slot Wins</div><div class="stat-value">1</div></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-circle" aria-hidden="true"></i></div><div class="stat-title">Roulette Wins</div><div class="stat-value">0</div></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-clone" aria-hidden="true"></i></div><div class="stat-title">Card Wins</div><div class="stat-value">1</div></article>
+            <article class="stat-card"><div class="stat-icon"><i class="fas fa-paw" aria-hidden="true"></i></div><div class="stat-title">Jungle Jackpot Wins</div><div class="stat-value">0</div></article>
+          </div>
+          <p class="demo-disclaimer">All profile statistics are sample data stored in this browser.</p>
+        </div>
+
+        <div class="tab-content" id="settingsTab" role="tabpanel" hidden>
+          <h2 class="section-title"><i class="fas fa-user-cog" aria-hidden="true"></i> Profile Settings</h2>
+          <div class="settings-form">
+            <div class="form-group">
+              <label class="form-label">Profile Picture</label>
+              <div class="avatar-settings-row"><div class="profile-avatar settings-avatar" id="settingsAvatarPreview"><span>🦁</span></div><button class="btn btn-outline" id="chooseAvatarBtn" type="button"><i class="fas fa-upload" aria-hidden="true"></i> Choose Local Avatar</button></div>
+              <small>The image preview stays on this device and is not uploaded.</small>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label" for="settingsUsername">Username</label><input type="text" class="form-input" id="settingsUsername" value="DemoLion" maxlength="24"></div>
+              <div class="form-group"><label class="form-label" for="settingsEmail">Email Address</label><input type="email" class="form-input" id="settingsEmail" value="demo@rawr.casino" disabled></div>
+            </div>
+            <div class="form-group"><label class="form-label" for="settingsBio">Bio</label><textarea class="form-input" id="settingsBio" rows="3">RAWR Casino enthusiast!</textarea></div>
+            <button class="btn" id="saveProfileBtn" type="button"><i class="fas fa-save" aria-hidden="true"></i> Save Changes</button>
+
+            <h3 class="section-title security-title"><i class="fas fa-shield-alt" aria-hidden="true"></i> Security Settings</h3>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label" for="currentPassword">Current Password</label><input type="password" class="form-input" id="currentPassword" placeholder="Enter current password" autocomplete="current-password"></div>
+              <div class="form-group"><label class="form-label" for="newPassword">New Password</label><input type="password" class="form-input" id="newPassword" placeholder="Enter new password" autocomplete="new-password"></div>
+            </div>
+            <div class="form-group"><label class="form-label" for="confirmNewPassword">Confirm New Password</label><input type="password" class="form-input" id="confirmNewPassword" placeholder="Confirm new password" autocomplete="new-password"></div>
+            <button class="btn" id="changePasswordBtn" type="button"><i class="fas fa-key" aria-hidden="true"></i> Change Password</button>
+            <p class="demo-disclaimer">Profile and password updates are simulated and are not sent to a server.</p>
+          </div>
+        </div>
+
+        <div class="tab-content" id="kycTab" role="tabpanel" hidden>
+          <div class="kyc-section">
+            <div class="kyc-status">
+              <div class="kyc-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+              <div class="kyc-info"><div class="kyc-title">Identity Verification (KYC)</div><div class="kyc-description">Complete verification to unlock all features and higher withdrawal limits.</div></div>
+              <strong id="profile-kyc-status-copy">Not submitted</strong>
+            </div>
+            <div class="kyc-progress"><div>Verification Progress:</div><div class="progress-bar"><div class="progress-fill" id="kycProgress"></div></div><div id="progressPercentage">0%</div></div>
+            <div class="kyc-steps">
+              <section class="kyc-step"><div class="step-number">1</div><div class="step-content"><div class="step-title">Personal Information</div><p class="step-description">Provide sample details to preview the verification form.</p>
+                <div class="form-group"><label class="form-label" for="fullName">Full Name</label><input class="form-input" id="fullName" placeholder="As shown on your ID"></div>
+                <div class="form-row"><div class="form-group"><label class="form-label" for="dob">Date of Birth</label><input class="form-input" id="dob" type="date"></div><div class="form-group"><label class="form-label" for="country">Country</label><select class="form-input" id="country"><option value="">Select Country</option><option>Australia</option><option>Canada</option><option>Philippines</option><option>United Kingdom</option><option>United States</option></select></div><div class="form-group"><label class="form-label" for="contactNumber">Contact Number</label><input class="form-input" id="contactNumber" type="tel" placeholder="Contact number"></div></div>
+                <div class="form-group"><label class="form-label" for="address">Residential Address</label><input class="form-input" id="address" placeholder="Street address"></div>
+                <button class="btn" id="savePersonalInfoBtn" type="button"><i class="fas fa-save" aria-hidden="true"></i> Save Information</button>
+              </div></section>
+              <section class="kyc-step"><div class="step-number">2</div><div class="step-content"><div class="step-title">Email Verification</div><p class="step-description">Email verification is represented as a demo step.</p><div class="form-group"><label class="form-label" for="verifyEmail">Email Address</label><input class="form-input" id="verifyEmail" type="email" value="demo@rawr.casino" disabled></div><button class="btn" id="sendCodeBtn" type="button"><i class="fas fa-paper-plane" aria-hidden="true"></i> Send Verification Code</button></div></section>
+              <section class="kyc-step"><div class="step-number">3</div><div class="step-content"><div class="step-title">Identity Documents</div><p class="step-description">Document upload is disabled. This portfolio demo does not collect personal documents.</p><div class="upload-area" aria-disabled="true"><div class="upload-icon"><i class="fas fa-id-card" aria-hidden="true"></i></div><div class="upload-text">Document upload is unavailable in demo mode.</div></div></div></section>
+            </div>
+            <div class="kyc-actions"><button class="btn" id="submitKycBtn" type="button"><i class="fas fa-paper-plane" aria-hidden="true"></i> Submit for Verification</button><span class="demo-disclaimer">No information is uploaded or transmitted.</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="demo-notice" class="demo-notice" role="status"></div>
+</body>
+</html>

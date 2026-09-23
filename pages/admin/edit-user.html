@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../../">
+  <title>RAWR Casino — Edit User</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css"><link rel="stylesheet" href="css/php-pages/admin/edit-user.css"><link rel="stylesheet" href="css/php-pages/admin/demo-adapt.css"><link rel="stylesheet" href="css/php-pages/admin/admin-ui.css">
+  <script src="demo-data/data.js" defer></script><script src="js/pages/demo-state.js" defer></script><script src="js/pages/site-shell.js" defer></script><script src="js/pages/admin.js" defer></script><script src="js/pages/admin-ui.js" defer></script>
+</head>
+<body class="admin-source-page" data-page="admin-edit">
+  <div class="admin-dashboard">
+    <header class="admin-header"><div class="admin-header-content"><div class="logo-area"><a href="pages/admin/dashboard.html" class="logo"><i class="fas fa-paw" aria-hidden="true"></i><span>RAWR Admin</span></a></div><div class="header-actions"><button class="menu-toggle" id="adminMenuToggle" type="button" aria-label="Open Admin Menu" aria-expanded="false" aria-controls="adminSidebar"><i class="fas fa-bars" aria-hidden="true"></i><i class="fas fa-xmark" aria-hidden="true"></i></button></div></div></header>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <aside class="admin-sidebar" id="adminSidebar"><nav class="sidebar-nav" aria-label="Admin navigation"><div class="sidebar-header">Main Menu</div><a href="pages/admin/dashboard.html" class="sidebar-item"><i class="fas fa-tachometer-alt" aria-hidden="true"></i><span>Dashboard</span></a><a href="pages/admin/manage-users.html" class="sidebar-item active"><i class="fas fa-users" aria-hidden="true"></i><span>Manage Users</span></a><a href="pages/admin/kyc-requests.html" class="sidebar-item"><i class="fas fa-id-card" aria-hidden="true"></i><span>KYC Requests</span></a><div class="sidebar-header">System</div><a href="index.html" class="sidebar-item" data-demo-logout><i class="fas fa-sign-out-alt" aria-hidden="true"></i><span>Logout</span></a></nav></aside>
+    <div class="dashboard-content"><main class="main-content">
+      <section class="section-title-wrapper"><span class="section-subtitle">User Management</span><h1 class="section-title">Edit User</h1><p class="section-description">Update user account details and status.</p></section>
+      <form id="edit-user-form" class="user-edit-form">
+        <section class="form-section">
+          <div class="user-info" style="margin-bottom:1.5rem">
+            <div class="user-avatar-large" id="edit-user-avatar" aria-hidden="true"><i class="fas fa-user"></i></div>
+            <div>
+              <h3 id="edit-user-name">Demo User <span class="status-badge status-pending" id="edit-user-kyc-badge">Pending</span></h3>
+              <p id="edit-user-email">user@example.test</p><p id="edit-user-joined">Joined: Jan 1, 2025</p>
+              <div class="user-details" style="margin-top:1rem;background:rgba(255,215,0,0.05);border-radius:10px;padding:1rem">
+                <p><strong>RAWR Balance:</strong> <span id="edit-user-balance">0.00</span></p><p><strong>Ticket Balance:</strong> <span id="edit-user-tickets">0</span></p>
+                <p><strong>Full Name:</strong> Demo record</p><p><strong>Date of Birth:</strong> N/A</p><p><strong>Contact Number:</strong> N/A</p><p><strong>Address:</strong> N/A</p><p><strong>City:</strong> N/A</p><p><strong>State/Province:</strong> N/A</p><p><strong>Postal Code:</strong> N/A</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group"><label class="checkbox-label"><input type="checkbox" name="is_banned"><span class="checkbox-custom"></span><span>Banned User</span></label><p class="form-help">Check to ban this user from accessing the platform.</p></div>
+        </section>
+        <section class="form-section">
+          <h2 class="section-title">KYC Status</h2>
+          <div class="form-group"><label>Current Verification Status</label><div class="radio-group">
+            <label class="radio-label"><input type="radio" name="kyc_status" value="not_verified"><span class="radio-custom"></span><span>Not Verified</span></label>
+            <label class="radio-label"><input type="radio" name="kyc_status" value="pending"><span class="radio-custom"></span><span>Pending</span></label>
+            <label class="radio-label"><input type="radio" name="kyc_status" value="approved"><span class="radio-custom"></span><span>Approved</span></label>
+            <label class="radio-label"><input type="radio" name="kyc_status" value="rejected"><span class="radio-custom"></span><span>Rejected</span></label>
+          </div><p class="form-help">Changes are saved in this browser's local demo data.</p></div>
+          <div class="form-group" id="rejection-reason-group" hidden><label for="rejection_reason">Rejection Reason (required if rejecting)</label><textarea name="rejection_reason" id="rejection_reason" class="form-control" rows="4"></textarea></div>
+        </section>
+        <div class="form-actions"><button type="submit" class="btn btn-primary themed-btn"><i class="fas fa-save" aria-hidden="true"></i> Save Changes</button><a href="pages/admin/manage-users.html" class="btn btn-outline themed-btn-outline">Cancel</a></div>
+      </form>
+      <p class="demo-disclaimer">Changes are stored in this browser only. All account and verification data is fictional.</p>
+    </main></div>
+  </div>
+  <div id="demo-notice" class="demo-notice" role="status" aria-live="polite"></div>
+</body>
+</html>

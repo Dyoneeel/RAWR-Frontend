@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="../../">
+  <meta name="description" content="Create a local RAWR Casino demo account.">
+  <title>RAWR — Join the Pride</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script src="js/pages/demo-state.js" defer></script>
+  <script src="js/pages/auth.js" defer></script>
+</head>
+<body class="auth-page register-page" data-page="register">
+  <div class="auth-bg" aria-hidden="true"></div>
+  <div class="floating-paws" aria-hidden="true">
+    <span class="paw">🐾</span><span class="paw">🐾</span><span class="paw">🐾</span>
+    <span class="paw">🐾</span><span class="paw">🐾</span><span class="paw">🐾</span>
+    <span class="paw">🐾</span><span class="paw">🐾</span><span class="paw">🐾</span>
+  </div>
+
+  <a href="index.html" class="back-home">← <span class="back-home-text">Back to RAWR</span></a>
+
+  <main class="auth-container register-container" aria-labelledby="register-title">
+    <div class="logo-header">
+      <div class="lion-emoji"><img src="assets/logo.png" alt="RAWR lion logo"></div>
+      <h1 id="register-title">RAWR</h1>
+      <p class="tagline">Create your RAWR Casino account</p>
+    </div>
+
+    <form class="register-form" id="register-form" method="post" action="#">
+      <div class="input-group">
+        <label class="input-label" for="username">Username</label>
+        <input class="input-field" type="text" id="username" name="username" autocomplete="username" minlength="4" maxlength="32" placeholder="Enter your username" required>
+      </div>
+      <div class="input-group">
+        <label class="input-label" for="email">Email Address</label>
+        <input class="input-field" type="email" id="email" name="email" autocomplete="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-group">
+        <label class="input-label" for="password">Password</label>
+        <div class="password-input-wrap">
+          <input class="input-field" type="password" id="password" name="password" autocomplete="new-password" minlength="8" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}" title="Use at least 8 characters with an uppercase letter, lowercase letter, and number." placeholder="Enter your password" required>
+          <button type="button" class="password-toggle" data-toggle-password="password" aria-label="Show password">👁️</button>
+        </div>
+        <small class="password-hint">At least 8 characters with uppercase, lowercase, and a number.</small>
+      </div>
+      <div class="input-group">
+        <label class="input-label" for="confirm">Confirm Password</label>
+        <div class="password-input-wrap">
+          <input class="input-field" type="password" id="confirm" name="confirm_password" autocomplete="new-password" placeholder="Confirm your password" required>
+          <button type="button" class="password-toggle" data-toggle-password="confirm" aria-label="Show password">👁️</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <label class="input-label" for="referral">Referral Code (Optional)</label>
+        <input class="input-field" type="text" id="referral" name="referral_code" placeholder="Enter referral code">
+      </div>
+      <div class="terms-group">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I accept the Terms &amp; Conditions and Privacy Policy (demo).</label>
+      </div>
+      <button type="submit" class="submit-btn">Create Account</button>
+    </form>
+
+    <p class="auth-storage-note">This portfolio demo saves your account in this browser only. Use sample details, not a real password.</p>
+
+    <div class="switch-page">
+      <p>Already a member? <a href="pages/auth/login.html">Login to your Den</a></p>
+    </div>
+  </main>
+
+  <div class="demo-notice notification" id="demo-notice" role="status" aria-live="polite"></div>
+</body>
+</html>

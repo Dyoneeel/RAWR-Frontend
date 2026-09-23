@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="../../">
+  <title>RAWR Casino — My Wallet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/pages/multipage.css">
+  <link rel="stylesheet" href="css/pages/account.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/pages/php-theme.css">
+  <link rel="stylesheet" href="css/php-pages/wallet.css">
+  <script src="demo-data/data.js" defer></script>
+  <script src="js/pages/demo-state.js" defer></script>
+  <script src="js/pages/site-shell.js" defer></script>
+  <script src="js/pages/wallet.js" defer></script>
+</head>
+<body data-page="wallet">
+  <div id="app-header"></div>
+  <div class="app-layout">
+    <aside id="app-sidebar"></aside>
+    <main class="page-main">
+      <header class="page-header">
+        <h1>My Wallet</h1>
+        <p>Manage your RAWR tokens and tickets. Convert demo balances and review your activity.</p>
+      </header>
+      <div class="wallet-container">
+        <section class="wallet-section">
+          <div class="wallet-header"><div class="wallet-icon"><i class="fas fa-wallet" aria-hidden="true"></i></div><div><h2>Your Wallet</h2><p>Balances and wallet tools for your RAWR demo account.</p></div></div>
+          <div class="balance-display">
+            <article class="balance-card"><div class="balance-label">RAWR Balance</div><div class="balance-amount" id="wallet-rawr">250.00</div><small>RAWR</small></article>
+            <article class="balance-card"><div class="balance-label">Ticket Balance</div><div class="balance-amount" id="wallet-tickets">50</div><small>Tickets</small></article>
+          </div>
+          <article class="action-card" id="metamask-card">
+            <h2 class="action-title"><i class="fab fa-ethereum" aria-hidden="true"></i> Blockchain Wallet</h2>
+            <p>Connect MetaMask to preview the wallet connection state. This portfolio demo never connects to a blockchain.</p>
+            <button class="metamask-connect" id="connect-wallet" type="button"><i class="fab fa-ethereum" aria-hidden="true"></i> Connect MetaMask</button>
+          </article>
+          <div class="action-cards">
+            <article class="action-card">
+              <h2 class="action-title"><i class="fas fa-exchange-alt" aria-hidden="true"></i> Convert Currency</h2>
+              <div class="conversion-rate"><i class="fas fa-info-circle" aria-hidden="true"></i> 1 Ticket = 20 RAWR</div>
+              <form id="convert-form">
+                <div class="form-group"><label class="form-label" for="convert-direction">Conversion Direction</label><select class="form-select" id="convert-direction" name="direction"><option value="rawr-to-tickets">RAWR → Tickets</option><option value="tickets-to-rawr">Tickets → RAWR</option></select></div>
+                <div class="form-group"><label class="form-label" for="convert-amount">Amount to Convert</label><input class="form-input" id="convert-amount" name="amount" type="number" min="1" step="1" required></div>
+                <button class="btn-primary" type="submit">Convert</button>
+              </form>
+            </article>
+            <article class="action-card">
+              <h2 class="action-title"><i class="fas fa-arrow-down" aria-hidden="true"></i> Deposit RAWR</h2>
+              <p>Record a simulated deposit request in your local demo history.</p>
+              <form data-wallet-action="deposit">
+                <div class="form-group"><label class="form-label">Deposit Amount (RAWR)<input class="form-input" name="amount" type="number" min="0.01" step="0.01" required></label></div>
+                <div class="form-group"><label class="form-label">Wallet Address<input class="form-input" name="address" placeholder="0x…" required></label></div>
+                <button class="btn-primary" type="submit">Request Deposit</button>
+              </form>
+            </article>
+            <article class="action-card">
+              <h2 class="action-title"><i class="fas fa-arrow-up" aria-hidden="true"></i> Withdraw RAWR</h2>
+              <p>Submit a simulated withdrawal request for your demo balance.</p>
+              <form data-wallet-action="withdraw">
+                <div class="form-group"><label class="form-label">Withdrawal Amount (RAWR)<input class="form-input" name="amount" type="number" min="0.01" step="0.01" required></label></div>
+                <div class="form-group"><label class="form-label">Wallet Address<input class="form-input" name="address" placeholder="0x…" required></label></div>
+                <button class="btn-primary btn-outline" type="submit">Request Withdrawal</button>
+              </form>
+            </article>
+          </div>
+        </section>
+        <section class="wallet-section">
+          <h2 class="section-title"><i class="fas fa-history" aria-hidden="true"></i> Transaction History</h2>
+          <div class="transaction-history-scrollable"><table class="transaction-table"><thead><tr><th>Type</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead><tbody id="transaction-rows"></tbody></table></div>
+        </section>
+        <p class="demo-disclaimer">No wallet connection, deposit, withdrawal, or token transfer takes place in this frontend demo.</p>
+      </div>
+    </main>
+  </div>
+  <div id="demo-notice" class="demo-notice" role="status" aria-live="polite"></div>
+</body>
+</html>

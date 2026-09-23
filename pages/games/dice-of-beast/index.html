@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="../../../">
+  <title>Dice of Beast — RAWR Casino</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/pages/multipage.css">
+  <link rel="stylesheet" href="css/games/games.css">
+  <link rel="stylesheet" href="css/php-pages/game-standalone.css">
+  <link rel="stylesheet" href="css/php-pages/games/dice-of-beast.css">
+  <link rel="stylesheet" href="css/php-pages/games/demo-interactions.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="demo-data/data.js" defer></script>
+  <script src="js/pages/demo-state.js" defer></script>
+  <script src="js/pages/site-shell.js" defer></script>
+  <script src="js/pages/games.js" defer></script>
+</head>
+<body data-page="game-dice" data-game="dice">
+  <div id="app-header"></div>
+  <div class="app-layout">
+    <aside id="app-sidebar"></aside>
+    <main class="page-main standalone-game">
+      <div class="game-grid">
+        <section class="game-main-content">
+          <header class="game-title-section">
+            <h1>Dice of Beast</h1>
+            <p>Choose your beast and roll the dice! Each beast has 2 faces on the die.</p>
+          </header>
+
+          <div class="stats-grid">
+            <article class="stat-card glass-card">
+              <div class="stat-label"><i class="fas fa-ticket-alt stat-icon" aria-hidden="true"></i>Ticket Balance</div>
+              <div class="stat-value" id="game-ticket-balance">50</div>
+            </article>
+            <article class="stat-card glass-card">
+              <div class="stat-label"><i class="fas fa-trophy stat-icon" aria-hidden="true"></i>Last Win</div>
+              <div class="stat-value" id="last-win-display">0</div>
+            </article>
+            <article class="stat-card glass-card">
+              <div class="stat-label"><i class="fas fa-dice stat-icon" aria-hidden="true"></i>Total Rolls</div>
+              <div class="stat-value" id="total-rolls-display">0</div>
+            </article>
+          </div>
+
+          <section class="dice-game-area glass-card">
+            <h2 class="dice-prompt">Choose Your Beast</h2>
+            <div class="animal-selection" role="group" aria-label="Choose the beast to bet on">
+              <button type="button" class="animal-card lion" data-beast="lion" aria-pressed="false">
+                <span class="animal-icon">🦁</span>
+                <span class="animal-name">Lion</span>
+                <span class="animal-odds">1 face · 5× payout</span>
+              </button>
+              <button type="button" class="animal-card tiger" data-beast="tiger" aria-pressed="false">
+                <span class="animal-icon">🐅</span>
+                <span class="animal-name">Tiger</span>
+                <span class="animal-odds">2 faces · 3× payout</span>
+              </button>
+              <button type="button" class="animal-card wolf" data-beast="wolf" aria-pressed="false">
+                <span class="animal-icon">🐺</span>
+                <span class="animal-name">Wolf</span>
+                <span class="animal-odds">3 faces · 2× payout</span>
+              </button>
+            </div>
+
+            <div class="dice-container">
+              <div class="dice" id="dice" aria-label="The beast die">
+                <div class="dice-face front lion">🦁</div>
+                <div class="dice-face back tiger">🐅</div>
+                <div class="dice-face right wolf">🐺</div>
+                <div class="dice-face left wolf">🐺</div>
+                <div class="dice-face top tiger">🐅</div>
+                <div class="dice-face bottom wolf">🐺</div>
+              </div>
+            </div>
+            <p class="game-result" id="game-result" aria-live="polite">Choose your beast, then roll.</p>
+            <button type="button" class="roll-button" id="roll-beast" disabled>Select Beast &amp; Roll</button>
+          </section>
+        </section>
+
+        <aside class="controls-column">
+          <section class="controls-card glass-card">
+            <label for="bet-amount" class="bet-label">Bet Amount (Tickets)</label>
+            <div class="bet-input-container">
+              <input type="number" id="bet-amount" value="10" min="1" max="1000" class="bet-input">
+            </div>
+            <div class="quick-bet-buttons" aria-label="Quick bet amount">
+              <button type="button" class="quick-bet-btn" data-bet-value="1">1</button>
+              <button type="button" class="quick-bet-btn active" data-bet-value="10">10</button>
+              <button type="button" class="quick-bet-btn" data-bet-value="25">25</button>
+              <button type="button" class="quick-bet-btn" data-bet-value="50">50</button>
+              <button type="button" class="quick-bet-btn" data-bet-value="100">100</button>
+              <button type="button" class="quick-bet-btn" data-bet-max>MAX</button>
+            </div>
+          </section>
+
+          <section class="history-card glass-card">
+            <h2 class="history-title">Roll History</h2>
+            <div class="history-items" id="game-history" aria-live="polite"></div>
+          </section>
+        </aside>
+      </div>
+      <p class="demo-disclaimer">Dice rolls and payouts are simulated locally. No real funds or tokens are used.</p>
+    </main>
+  </div>
+  <div id="demo-notice" class="demo-notice" role="status"></div>
+</body>
+</html>
