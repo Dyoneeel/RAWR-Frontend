@@ -385,7 +385,7 @@
     let roundActive = false;
     let roundBet = 0;
     const playButton = document.getElementById('play-finding');
-    const cards = [...document.querySelectorAll('[data-simba-card]')];
+    const cards = [...document.querySelectorAll('[data-card]')];
     const cardsContainer = document.getElementById('cardsContainer');
     playButton?.addEventListener('click', () => {
       if (roundActive) return;
@@ -397,7 +397,6 @@
       if (playButton) playButton.disabled = true;
       cardsContainer?.classList.add('shuffling-mode');
       cards.forEach(card => {
-        card.disabled = true;
         card.classList.remove('simba', 'flipped');
         card.classList.add('shuffling');
         const content = card.querySelector('.card-content');
@@ -412,22 +411,21 @@
       window.setTimeout(() => {
         cardsContainer?.classList.remove('shuffling-mode');
         cards.forEach(card => {
-          card.disabled = false;
           card.classList.remove('shuffling');
         });
         roundActive = true;
         setResult('The cards are ready. Choose one to find Simba.');
       }, 1100);
     });
-    document.querySelectorAll('[data-simba-card]').forEach(button => button.addEventListener('click', () => {
-      if (!roundActive || button.disabled) return;
-      const choice = Number(button.dataset.simbaCard);
-      cards.forEach((card, index) => {
-        const content = card.querySelector('.card-content');
-        if (content) content.textContent = index === simbaIndex ? '🦁' : ['🐘', '🐆', '🐒'][index];
-        card.classList.toggle('simba', index === simbaIndex);
-        card.classList.add('flipped');
-        card.disabled = true;
+    document.querySelectorAll('[data-card]').forEach(card => card.addEventListener('click', () => {
+      if (!roundActive) return;
+      const choice = Number(card.dataset.card);
+      cards.forEach((c, index) => {
+        const cardIndex = index + 1; // data-card starts at 1
+        const content = c.querySelector('.card-content');
+        if (content) content.textContent = cardIndex === simbaIndex ? '🦁' : ['🐘', '🐆', '🐒'][index];
+        c.classList.toggle('simba', cardIndex === simbaIndex);
+        c.classList.add('flipped');
       });
       const won = choice === simbaIndex;
       settleGame(gameNames['finding-simba'], roundBet, won ? roundBet * 3 : 0, won ? 'You found Simba!' : 'No Simba on that card.', {

@@ -64,11 +64,11 @@
     const remaining = running ? Math.max(0, duration - elapsedInCycle()) : 0;
     const rate = baseRewardPerHour * upgrades.shovel;
     const reward = cycleReward();
-    $('miningRate').textContent = `${rate.toFixed(2)} RAWR/hr`;
-    $('currentRate').textContent = `${rate.toFixed(2)} RAWR/hr`;
+    $('miningRate').innerHTML = `${rate.toFixed(2)}<br>RAWR/hr`;
+    $('currentRate').innerHTML = `${rate.toFixed(2)}<br>RAWR/hr`;
     $('nextReward').textContent = `${reward.toFixed(2)} RAWR`;
     $('rewardAmount').textContent = reward.toFixed(2);
-    $('totalMined').textContent = `${Number(DemoState.totalMined || 0).toFixed(4)} RAWR`;
+    $('totalMined').innerHTML = `${Number(DemoState.totalMined || 0).toFixed(4)}<br>RAWR`;
     $('activeBoosts').textContent = `x${upgrades.shovel.toFixed(1)}`;
     $('timeLeft').textContent = running ? formatTime(remaining) : '00:00';
     $('miningProgress').style.width = `${running ? Math.min(100, elapsedInCycle() / duration * 100) : 0}%`;

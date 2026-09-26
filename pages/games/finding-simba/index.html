@@ -39,21 +39,41 @@
             <article class="stat-card glass-card"><div class="stat-label"><i class="fas fa-trophy stat-icon" aria-hidden="true"></i>Last Win</div><div class="stat-value" id="last-win-display">0</div></article>
             <article class="stat-card glass-card"><div class="stat-label"><i class="fas fa-coins stat-icon" aria-hidden="true"></i>Current Bet</div><div class="stat-value" id="bet-display">10</div></article>
           </div>
-          <div class="cards-container" id="cardsContainer" aria-label="Choose one of three cards">
-            <button class="card" type="button" data-simba-card="0" aria-label="Reveal card one">
-              <span class="card-face card-back"><span class="card-back-content"><span class="card-back-logo">🦁</span><span class="card-back-text">RAWR CASINO</span></span></span>
-              <span class="card-face card-front"><span class="card-content">🚫</span></span>
-            </button>
-            <button class="card" type="button" data-simba-card="1" aria-label="Reveal card two">
-              <span class="card-face card-back"><span class="card-back-content"><span class="card-back-logo">🦁</span><span class="card-back-text">RAWR CASINO</span></span></span>
-              <span class="card-face card-front"><span class="card-content">🚫</span></span>
-            </button>
-            <button class="card" type="button" data-simba-card="2" aria-label="Reveal card three">
-              <span class="card-face card-back"><span class="card-back-content"><span class="card-back-logo">🦁</span><span class="card-back-text">RAWR CASINO</span></span></span>
-              <span class="card-face card-front"><span class="card-content">🚫</span></span>
-            </button>
+          <div class="cards-container" id="cardsContainer">
+            <div class="card" data-card="1">
+              <div class="card-face card-back">
+                <div class="card-back-content">
+                  <div class="card-back-logo">🦁</div>
+                  <div class="card-back-text">RAWR CASINO</div>
+                </div>
+              </div>
+              <div class="card-face card-front">
+                <span class="card-content">🚫</span>
+              </div>
+            </div>
+            <div class="card" data-card="2">
+              <div class="card-face card-back">
+                <div class="card-back-content">
+                  <div class="card-back-logo">🦁</div>
+                  <div class="card-back-text">RAWR CASINO</div>
+                </div>
+              </div>
+              <div class="card-face card-front">
+                <span class="card-content">🚫</span>
+              </div>
+            </div>
+            <div class="card" data-card="3">
+              <div class="card-face card-back">
+                <div class="card-back-content">
+                  <div class="card-back-logo">🦁</div>
+                  <div class="card-back-text">RAWR CASINO</div>
+                </div>
+              </div>
+              <div class="card-face card-front">
+                <span class="card-content">🚫</span>
+              </div>
+            </div>
           </div>
-          <p id="game-result" class="game-result" aria-live="polite">Set your bet, then choose a card to find Simba.</p>
         </div>
         <div class="controls-column">
           <section class="controls-card glass-card">
